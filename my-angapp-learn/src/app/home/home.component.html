@@ -3,3 +3,23 @@
 <div class="play-container">
     <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times.</p>
 </div>
+
+<div class="play-container">
+    <p>
+        <input type="text" [(ngModel)]="something" >
+        <br>
+        <strong>You said: </strong> {{ something }}
+    </p>
+</div>
+
+<div class="play-container" [style.background-color]="clickCounter > 4 ? 'gold' : 'lightgrey'">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+        <p>The click counter <strong>IS GREATER</strong> than 4.</p>
+    </ng-template>
+        
+    <ng-template #none>
+        <p>The click counter <strong>not greater</strong> than 4.</p>
+    </ng-template>
+</div>
+
+
