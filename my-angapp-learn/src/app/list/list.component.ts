@@ -9,15 +9,14 @@ import { HttpService } from '../http.service';
 })
 export class ListComponent implements OnInit {
 
-  brews: Object = [];
+  brews: Array<any> = [];
 
   constructor(private _http: HttpService) { }
 
   ngOnInit(): void {
     this._http.getLists().subscribe(data => {
-      this.brews = data;
+      this.brews = data as Array<Object>;
       console.log(this.brews);
     });
   }
-
 }
